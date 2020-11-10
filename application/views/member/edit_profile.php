@@ -136,23 +136,65 @@
             </div>
             <!-- /.content-header -->
             <!-- /.login-logo -->
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="<?= base_url('assets/images/') . $user['foto']; ?>" class="card-img" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $user['nama']; ?></h5>
-                            <h6 class="card-text"><?= $user['email']; ?></h6>
-                            <h6 class="card-text"><?= $user['gender']; ?></h6>
-                            <h6 class="card-text"><?= $user['alamat']; ?></h6>
-                            <h6 class="card-text"><?= $user['no_hp']; ?></h6>
-                            <p class="card-text"><small class="text-muted">Akun dibuat sejak <?= date('d F Y', $user['date_created']); ?></small></p>
-                            <a href="<?= base_url('member/profile/edit') ?>" class="btn btn-primary">Edit Profile</a>
+            <?php echo form_open_multipart('member/profile/edit'); ?>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" name="email" value="<?= $user['email']; ?>" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $user['nama']; ?>">
+                    <?= form_error('nama', '<small class="text-danger" pl-3>', '</small>') ?>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="no_hp" class="col-sm-2 col-form-label">Nomor HP</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?= $user['no_hp']; ?>">
+                    <?= form_error('no_hp', '<small class="text-danger" pl-3>', '</small>') ?>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $user['alamat']; ?>">
+                    <?= form_error('alamat', '<small class="text-danger" pl-3>', '</small>') ?>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="gender" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="gender" name="gender">
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                    <?= form_error('gender', '<small class="text-danger" pl-3>', '</small>') ?>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">Gambar</div>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="<?= base_url('assets/images/') . $user['foto'] ?>" class="img-thumbnail">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="foto" name="foto">
+                                <label class="custom-file-label" for="foto">Pilih Gambar</label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="form-group row justify-content-end">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div>
+            </div>
         </div>
-        <!-- /.login-box -->
+    </div>
+    <!-- /.login-box -->
