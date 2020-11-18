@@ -11,12 +11,14 @@ class Ambil extends CI_Controller
     }
     function index()
     {
-
+        $x['user'] = $this->db->get_where('tbl_member', ['email' => $this->session->userdata('email')])->row_array();
         $x['data'] = $this->m_files->get_all_files();
+        $x['title'] = 'Download';
         $this->load->view('member/ambil', $x);
-        $this->load->view('member/template/navbar');
-        $this->load->view('member/template/footer');
-        $this->load->view('member/template/head');
+        $this->load->view('member/template/navbar', $x);
+        $this->load->view('member/template/footer', $x);
+        $this->load->view('member/template/head', $x);
+        $this->load->view('member/template/print', $x);
     }
 
     function get_file()

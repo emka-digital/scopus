@@ -11,7 +11,7 @@ $jum_pesan = $query->num_rows();
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>M-Sekolah | Download</title>
+  <title>M-Sekolah | Data Webinar</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="shorcut icon" type="text/css" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
@@ -58,7 +58,7 @@ $jum_pesan = $query->num_rows();
               </span>
             </a>
           </li>
-          <li class="treeview">
+          <li class="treeview active">
             <a href="#">
               <i class="fa fa-video-camera"></i>
               <span>Webinar</span>
@@ -67,7 +67,7 @@ $jum_pesan = $query->num_rows();
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="<?php echo base_url() . 'admin/webinar' ?>"><i class="fa fa-list"></i>Data Webinar</a></li>
+              <li class="active"><a href="<?php echo base_url() . 'admin/webinar' ?>"><i class="fa fa-list"></i>Data Webinar</a></li>
               <li><a href="<?php echo base_url() . 'admin/webinar/invoice' ?>"><i class="fa fa-credit-card"></i>Invoice Webinar</a></li>
             </ul>
           </li>
@@ -109,7 +109,7 @@ $jum_pesan = $query->num_rows();
               </span>
             </a>
           </li>
-          <li class="active">
+          <li>
             <a href="<?php echo base_url() . 'admin/files' ?>">
               <i class="fa fa-download"></i> <span>Download</span>
               <span class="pull-right-container">
@@ -174,7 +174,7 @@ $jum_pesan = $query->num_rows();
           </li>
 
           <li>
-            <a href="<?php echo base_url() . 'administrator/logout' ?>">
+            <a href="<?php echo base_url() . 'admin/login/logout' ?>">
               <i class="fa fa-sign-out"></i> <span>Sign Out</span>
               <span class="pull-right-container">
                 <small class="label pull-right"></small>
@@ -193,12 +193,13 @@ $jum_pesan = $query->num_rows();
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          Download
+          Data Webinar
           <small></small>
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Download</li>
+          <li><a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="<?= base_url('admin/webinar') ?>"><i class="fa fa-video-camera"></i> Webinar</a></li>
+          <li class="active">Data Webinar</li>
         </ol>
       </section>
 
@@ -210,7 +211,7 @@ $jum_pesan = $query->num_rows();
 
               <div class="box">
                 <div class="box-header">
-                  <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add File</a>
+                  <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Webinar</a>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -218,35 +219,31 @@ $jum_pesan = $query->num_rows();
                     <thead>
                       <tr>
                         <th style="width:70px;">#</th>
-                        <th>File</th>
-                        <th>Tanggal Post</th>
-                        <th>Oleh</th>
-                        <th>Download</th>
+                        <th>Nama Webinar</th>
+                        <th>Deskripsi</th>
+                        <th>Harga</th>
+                        <th>Kuota</th>
+                        <th>Tanggal Pelaksanaan</th>
                         <th style="text-align:right;">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
                       $no = 0;
-                      foreach ($data->result_array() as $i) :
+                      foreach ($data as $i) :
                         $no++;
-                        $id = $i['file_id'];
-                        $judul = $i['file_judul'];
-                        $deskripsi = $i['file_deskripsi'];
-                        $oleh = $i['file_oleh'];
-                        $tanggal = $i['tanggal'];
-                        $download = $i['file_download'];
-                        $file = $i['file_data'];
-                      ?>
+                        $harga = $i['harga'];
+                        $hasil_rupiah = "Rp " . number_format($harga, 2, ',', '.'); ?>
                         <tr>
                           <td><?php echo $no; ?></td>
-                          <td><a href="<?php echo base_url() . 'admin/files/download/' . $id; ?>"><?php echo $judul; ?></a></td>
-                          <td><?php echo $tanggal; ?></td>
-                          <td><?php echo $oleh; ?></td>
-                          <td><?php echo $download; ?></td>
+                          <td><?php echo $i['nama_webinar']; ?></td>
+                          <td><?php echo $i['deskripsi']; ?></td>
+                          <td><?php echo $hasil_rupiah; ?></td>
+                          <td><?php echo $i['kuota']; ?></td>
+                          <td><?php echo $i['tgl_pelaksanaan']; ?></td>
                           <td style="text-align:right;">
-                            <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $id; ?>"><span class="fa fa-pencil"></span></a>
-                            <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id; ?>"><span class="fa fa-trash"></span></a>
+                            <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $i['id']; ?>"><span class="fa fa-pencil"></span></a>
+                            <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $i['id']; ?>"><span class="fa fa-trash"></span></a>
                           </td>
                         </tr>
                       <?php endforeach; ?>
@@ -473,36 +470,42 @@ $jum_pesan = $query->num_rows();
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-          <h4 class="modal-title" id="myModalLabel">Add File</h4>
+          <h4 class="modal-title" id="myModalLabel">Add Webinar</h4>
         </div>
-        <form class="form-horizontal" action="<?php echo base_url() . 'admin/files/simpan_file' ?>" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<?php echo base_url() . 'admin/webinar/add_webinar' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
+              <label for="inputUserName" class="col-sm-4 control-label">Nama Webinar</label>
               <div class="col-sm-7">
-                <input type="text" name="xjudul" class="form-control" id="inputUserName" placeholder="Judul" required>
+                <input type="text" name="nama_webinar" class="form-control" id="nama_webinar" placeholder="Judul" required>
               </div>
             </div>
             <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label">Deskripsi</label>
               <div class="col-sm-7">
-                <textarea class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..." required></textarea>
+                <textarea class="form-control" rows="3" name="deskripsi" id="deskripsi" placeholder="Deskripsi ..." required></textarea>
               </div>
             </div>
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Oleh</label>
+              <label for="inputUserName" class="col-sm-4 control-label">Harga</label>
               <div class="col-sm-7">
-                <input type="text" name="xoleh" class="form-control" id="inputUserName" placeholder="Oleh" required>
+                <input type="text" name="harga" class="form-control" id="harga" placeholder="Harga dalam Rp" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">File</label>
+              <label for="inputUserName" class="col-sm-4 control-label">Kuota</label>
               <div class="col-sm-7">
-                <input type="file" name="filefoto" required>
-                NB: file harus bertype pdf|doc|docx|ppt|pptx|zip. ukuran maksimal 2,7 MB.
+                <input type="text" name="kuota" class="form-control" id="kuota" placeholder="Kuota" required>
               </div>
             </div>
+            <div class="form-group">
+              <label for="inputUserName" class="col-sm-4 control-label">Tanggal Pelaksanan</label>
+              <div class="col-sm-7">
+                <input type="date" name="tgl_pelaksanaan" class="form-control" id="tgl_pelaksanaan" required>
+              </div>
+            </div>
+
 
           </div>
           <div class="modal-footer">
@@ -514,54 +517,56 @@ $jum_pesan = $query->num_rows();
     </div>
   </div>
 
-
-  <?php foreach ($data->result_array() as $i) :
-    $id = $i['file_id'];
-    $judul = $i['file_judul'];
-    $deskripsi = $i['file_deskripsi'];
-    $oleh = $i['file_oleh'];
-    $tanggal = $i['tanggal'];
-    $download = $i['file_download'];
-    $file = $i['file_data'];
+  <?php foreach ($data as $i) :
+    $harga = $i['harga'];
+    $hasil_rupiah = "Rp " . number_format($harga, 2, ',', '.');
   ?>
     <!--Modal Edit Pengguna-->
-    <div class="modal fade" id="ModalEdit<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="ModalEdit<?php echo $i['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-            <h4 class="modal-title" id="myModalLabel">Edit File</h4>
+            <h4 class="modal-title" id="myModalLabel">Edit Webinar</h4>
           </div>
-          <form class="form-horizontal" action="<?php echo base_url() . 'admin/files/update_file' ?>" method="post" enctype="multipart/form-data">
+          <form class="form-horizontal" action="<?php echo base_url() . 'admin/webinar/edit' ?>" method="post" enctype="multipart/form-data">
             <div class="modal-body">
 
               <div class="form-group">
-                <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
+                <label for="inputUserName" class="col-sm-4 control-label">Nama Webinar</label>
                 <div class="col-sm-7">
-                  <input type="hidden" name="kode" value="<?php echo $id; ?>">
-                  <input type="hidden" name="file" value="<?php echo $file; ?>">
-                  <input type="text" name="xjudul" class="form-control" value="<?php echo $judul; ?>" id="inputUserName" placeholder="Judul" required>
+                  <input type="hidden" name="kode" value="<?php echo $i['id']; ?>">
+                  <input type="text" name="nama_webinar" id="nama_webinar" class="form-control" value="<?php echo $i['nama_webinar']; ?>" id="inputUserName" placeholder="Judul" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputUserName" class="col-sm-4 control-label">Deskripsi</label>
                 <div class="col-sm-7">
-                  <textarea class="form-control" rows="3" name="xdeskripsi" placeholder="Deskripsi ..." required><?php echo $deskripsi; ?></textarea>
+                  <textarea class="form-control" rows="3" name="deskripsi" id="deskripsi" placeholder="Deskripsi ..." required><?php echo $i['deskripsi']; ?></textarea>
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputUserName" class="col-sm-4 control-label">Oleh</label>
+                <label for="inputUserName" class="col-sm-4 control-label">Harga</label>
                 <div class="col-sm-7">
-                  <input type="text" name="xoleh" class="form-control" value="<?php echo $oleh; ?>" id="inputUserName" placeholder="Oleh" required>
+                  <input type="hidden" name="kode" value="<?php echo $i['id']; ?>">
+                  <input type="text" name="harga" id="harga" class="form-control" value="<?php echo $i['harga'] ?>" id="inputUserName" placeholder="Judul" required>
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputUserName" class="col-sm-4 control-label">File</label>
+                <label for="inputUserName" class="col-sm-4 control-label">Kuota</label>
                 <div class="col-sm-7">
-                  <input type="file" name="filefoto">
-                  NB: file harus bertype pdf|doc|docx|ppt|pptx|zip. ukuran maksimal 2,7 MB.
+                  <input type="hidden" name="kode" value="<?php echo $i['id']; ?>">
+                  <input type="text" name="kuota" id="kuota" class="form-control" value="<?php echo $i['kuota']; ?>" id="inputUserName" placeholder="Judul" required>
                 </div>
               </div>
+              <div class="form-group">
+                <label for="inputUserName" class="col-sm-4 control-label">Tanggal Pelaksanaan</label>
+                <div class="col-sm-7">
+                  <input type="hidden" name="kode" value="<?php echo $i['id']; ?>">
+                  <input type="date" name="tgl_pelaksanaan" id="tgl_pelaksanaan" class="form-control" value="<?php echo $i['tgl_pelaksanaan']; ?>" id="inputUserName" placeholder="Judul" required>
+                </div>
+              </div>
+
 
             </div>
             <div class="modal-footer">
@@ -573,41 +578,6 @@ $jum_pesan = $query->num_rows();
       </div>
     </div>
   <?php endforeach; ?>
-
-  <?php foreach ($data->result_array() as $i) :
-    $id = $i['file_id'];
-    $judul = $i['file_judul'];
-    $deskripsi = $i['file_deskripsi'];
-    $oleh = $i['file_oleh'];
-    $tanggal = $i['tanggal'];
-    $download = $i['file_download'];
-    $file = $i['file_data'];
-  ?>
-    <!--Modal Hapus Pengguna-->
-    <div class="modal fade" id="ModalHapus<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-            <h4 class="modal-title" id="myModalLabel">Hapus File</h4>
-          </div>
-          <form class="form-horizontal" action="<?php echo base_url() . 'admin/files/hapus_file' ?>" method="post" enctype="multipart/form-data">
-            <div class="modal-body">
-              <input type="hidden" name="kode" value="<?php echo $id; ?>" />
-              <input type="hidden" name="file" value="<?php echo $file; ?>">
-              <p>Apakah Anda yakin mau menghapus file <b><?php echo $judul; ?></b> ?</p>
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary btn-flat" id="simpan">Hapus</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  <?php endforeach; ?>
-
 
 
 
@@ -682,7 +652,7 @@ $jum_pesan = $query->num_rows();
     <script type="text/javascript">
       $.toast({
         heading: 'Success',
-        text: "File Berhasil disimpan ke database.",
+        text: "Pengumuman Berhasil disimpan ke database.",
         showHideTransition: 'slide',
         icon: 'success',
         hideAfter: false,
@@ -694,7 +664,7 @@ $jum_pesan = $query->num_rows();
     <script type="text/javascript">
       $.toast({
         heading: 'Info',
-        text: "File berhasil di update",
+        text: "Pengumuman berhasil di update",
         showHideTransition: 'slide',
         icon: 'info',
         hideAfter: false,
@@ -706,7 +676,7 @@ $jum_pesan = $query->num_rows();
     <script type="text/javascript">
       $.toast({
         heading: 'Success',
-        text: "File Berhasil dihapus.",
+        text: "Pengumuman Berhasil dihapus.",
         showHideTransition: 'slide',
         icon: 'success',
         hideAfter: false,
