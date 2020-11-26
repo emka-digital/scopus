@@ -20,6 +20,7 @@ class Profile extends CI_Controller
         $this->form_validation->set_rules('no_hp', 'Nomor HP', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('gender', 'Jenis Kelamin', 'required|trim');
+        $this->form_validation->set_rules('status', 'Status', 'required|trim');
         if ($this->form_validation->run() == false) {
             $this->load->view('member/edit_profile', $data);
             $this->load->view('member/template/navbar', $data);
@@ -32,6 +33,7 @@ class Profile extends CI_Controller
             $no_hp = $this->input->post('no_hp');
             $alamat = $this->input->post('alamat');
             $gender = $this->input->post('gender');
+            $status = $this->input->post('status');
             //cek gambar yang akan diupload
             $upload_image = $_FILES['foto']['name'];
             if ($upload_image) {
@@ -54,6 +56,7 @@ class Profile extends CI_Controller
             $this->db->set('no_hp', $no_hp);
             $this->db->set('alamat', $alamat);
             $this->db->set('gender', $gender);
+            $this->db->set('status', $status);
             $this->db->where('email', $email);
             $this->db->update('tbl_member');
             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Selamat Profile anda telah berhasil diubah.</div>');

@@ -5,10 +5,10 @@
              <div class="col-xs-6 col-sm-8 col-md-9">
                  <div class="header-top_address">
                      <div class="header-top_list">
-                         <span class="icon-phone"></span>00 55 22 66
+                         <span class="icon-phone"></span>0812-2688-32808
                      </div>
                      <div class="header-top_list">
-                         <span class="icon-envelope-open"></span>info@mschool.com
+                         <span class="icon-envelope-open"></span>Rumahscopus@gmail.com
                      </div>
                      <div class="header-top_list">
                          <span class="icon-location-pin"></span>Padang, Sumatera Barat, INA. 11001
@@ -34,7 +34,7 @@
                      <button class="navbar-toggler navbar-toggler2 navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
                          <span class="icon-menu"></span>
                      </button>
-                     <a href="<?php echo site_url(''); ?>" class="navbar-brand nav-brand2"><img class="img img-responsive" width="200px;" src="<?php echo base_url() . 'theme/images/logo-dark.png' ?>"></a>
+                     <a href="<?php echo site_url(''); ?>" class="navbar-brand nav-brand2"><img class="img img-responsive" width="100px;" src="<?php echo base_url() . 'theme/images/logo/scopus.png' ?>"></a>
                      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                          <ul class="navbar-nav">
                              <li class="nav-item">

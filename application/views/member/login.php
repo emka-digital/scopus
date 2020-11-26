@@ -19,6 +19,7 @@
                     <div class="signin-image">
                         <figure><img src="<?php echo base_url() . 'theme/member/images/signin-image.jpg' ?>" alt="sing up image"></figure>
                         <a href="registrasi" class="signup-image-link">Create an account</a>
+                        <a class="signup-image-link" href="<?php echo site_url(''); ?>">Home</a>
                     </div>
 
                     <div class="signin-form">

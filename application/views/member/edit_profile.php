@@ -175,6 +175,19 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label for="status" class="col-sm-2 col-form-label">Status</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="status" name="status">
+                        <option value="Mahasiswa">Mahasiswa</option>
+                        <option value="Karyawan">Karyawan</option>
+                        <option value="Dosen">Dosen</option>
+                        <option value="Peneliti">Peneliti</option>
+                        <option value="Umum">Umum</option>
+                    </select>
+                    <?= form_error('status', '<small class="text-danger" pl-3>', '</small>') ?>
+                </div>
+            </div>
+            <div class="form-group row">
                 <div class="col-sm-2">Gambar</div>
                 <div class="col-sm-10">
                     <div class="row">
@@ -192,7 +205,7 @@
             </div>
             <div class="form-group row justify-content-end">
                 <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
         </div>

@@ -24,6 +24,7 @@ class Registrasi extends CI_Controller
                 'alamat' => '',
                 'gender' => '',
                 'no_hp' => '',
+                'status' => '',
                 'email' => htmlspecialchars($this->input->post('email'), true),
                 'foto' => 'blank.png',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),

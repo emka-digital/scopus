@@ -39,6 +39,10 @@
                                 <input type="password" name="password2" id="password2" placeholder="Repeat your password" />
                             </div>
                             <div class="form-group">
+                                <label for="refeal"><i class="zmdi zmdi-account material-icons-friends"></i></label>
+                                <input type="text" name="refeal" id="refeal" placeholder="Kode Refeal Teman" />
+                            </div>
+                            <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="term-service">Terms of service</a></label>
                             </div>

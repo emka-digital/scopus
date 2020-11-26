@@ -116,44 +116,43 @@
 
 
 
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <div class="content-header">
+            <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Member Profile </h1>
-                        </div><!-- /.col -->
+                            <h1>Order</h1>
+                        </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="<?= base_url('member/dasboard') ?>">Member</a></li>
-                                <li class="breadcrumb-item active">Profile</li>
+                                <li class="breadcrumb-item active">Order</li>
                             </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-            <!-- /.login-logo -->
-            <div class="card mb-3 m-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="<?= base_url('assets/images/') . $user['foto']; ?>" class="card-img m-3" alt="...">
+                        </div>
                     </div>
-                    <div class="col-md-8">
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><strong><?= $user['nama']; ?></strong></h5>
-                            <h6 class="card-text"><?= $user['email']; ?></h6>
-                            <h6 class="card-text"><?= $user['gender']; ?></h6>
-                            <h6 class="card-text"><?= $user['alamat']; ?></h6>
-                            <h6 class="card-text"><?= $user['no_hp']; ?></h6>
-                            <h6 class="card-text"><?= $user['status']; ?></h6>
-                            <p class="card-text"><small class="text-muted">Akun dibuat sejak <?= date('d F Y', $user['date_created']); ?></small></p>
-                            <a href="<?= base_url('member/profile/edit') ?>" class="btn btn-primary">Edit Profile</a>
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
-            </div>
+                <!-- /.timeline -->
+
+            </section>
+            <!-- /.content -->
         </div>
-        <!-- /.login-box -->
+        <!-- /.content-wrapper -->
+</body>

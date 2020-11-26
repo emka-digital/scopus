@@ -1,9 +1,9 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-        <img src="<?php echo base_url() . 'theme/member/dist/img/AdminLTELogo.png' ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Member Scopus</span>
+    <a href="#" class="brand-link">
+        <img src="<?php echo base_url() . 'theme/images/logo/favicon-32x32.png' ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light" style="color:#D2691E ;"><strong>Member Scopus</strong></span>
     </a>
 
     <!-- Sidebar -->
@@ -14,7 +14,7 @@
                 <img src="<?php echo base_url('assets/images/') . $user['foto'] ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"><?= $user['nama'] ?></a>
+                <a href="profile" class="d-block"><?= $user['nama'] ?></a>
             </div>
         </div>
 
