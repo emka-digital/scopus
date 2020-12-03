@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Nov 2020 pada 04.34
+-- Waktu pembuatan: 03 Des 2020 pada 07.23
 -- Versi server: 10.1.34-MariaDB
 -- Versi PHP: 7.2.7
 
@@ -452,7 +452,27 @@ INSERT INTO `tbl_pengunjung` (`pengunjung_id`, `pengunjung_tanggal`, `pengunjung
 (936, '2020-11-21 03:41:21', '::1', 'Chrome'),
 (937, '2020-11-23 03:54:36', '::1', 'Chrome'),
 (938, '2020-11-25 03:30:04', '::1', 'Chrome'),
-(939, '2020-11-26 02:35:46', '::1', 'Chrome');
+(939, '2020-11-26 02:35:46', '::1', 'Chrome'),
+(940, '2020-11-27 07:25:29', '::1', 'Chrome'),
+(941, '2020-11-29 13:01:46', '::1', 'Chrome'),
+(942, '2020-11-30 11:31:39', '::1', 'Chrome'),
+(943, '2020-12-01 04:57:19', '::1', 'Chrome'),
+(944, '2020-12-02 03:40:57', '::1', 'Chrome'),
+(945, '2020-12-03 05:58:52', '::1', 'Chrome');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_sertif`
+--
+
+CREATE TABLE `tbl_sertif` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `materi` varchar(100) NOT NULL,
+  `tanggal` date NOT NULL,
+  `gambar` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -767,7 +787,7 @@ ALTER TABLE `tbl_pengumuman`
 -- AUTO_INCREMENT untuk tabel `tbl_pengunjung`
 --
 ALTER TABLE `tbl_pengunjung`
-  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=940;
+  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=946;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_siswa`

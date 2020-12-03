@@ -182,68 +182,53 @@
                       <tr>
                         <td>Price</td>
                         <td colspan="2">: Rp.<?= $webinar['harga'] ?></td>
-                      </tr>
                     </tbody>
                   </form>
                 </table>
-                <button class="btn btn-primary" id="pay-button">Pay!</button>
-              </div>
+                <!--<button class="btn btn-primary" id="pay-button" ">Pay!</button>-->
+                <a href=" <?= base_url('member/tagihan') ?>" class="btn btn-primary" id="pay-button">Pay!</a>
 
-            </div>
-            <!-- /.col -->
-          </div>
-        </div>
-        <!-- /.timeline -->
-        <script type="text/javascript">
-          $('#pay-button').click(function(event) {
-            event.preventDefault();
-            $(this).attr("disabled", "disabled");
-
-            $.ajax({
-              url: '<?= site_url() ?>member/snap/token/',
-              cache: false,
-
-              success: function(data) {
-                //location = data;
-
-                console.log('token = ' + data);
-
-                var resultType = document.getElementById('result-type');
-                var resultData = document.getElementById('result-data');
-
-                function changeResult(type, data) {
-                  $("#result-type").val(type);
-                  $("#result-data").val(JSON.stringify(data));
-                  //resultType.innerHTML = type;
-                  //resultData.innerHTML = JSON.stringify(data);
-                }
-
-                snap.pay(data, {
-
-                  onSuccess: function(result) {
-                    changeResult('success', result);
-                    console.log(result.status_message);
-                    console.log(result);
-                    $("#payment-form").submit();
-                  },
-                  onPending: function(result) {
-                    changeResult('pending', result);
-                    console.log(result.status_message);
-                    $("#payment-form").submit();
-                  },
-                  onError: function(result) {
-                    changeResult('error', result);
-                    console.log(result.status_message);
-                    $("#payment-form").submit();
-                  }
-                });
-              }
-            });
-          });
-        </script>
-
-      </section>
-      <!-- /.content -->
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Penawaran Menarik</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="col-md-12">
+                          <h1 class="mb-4">Waktunya upgrade skill !</h1>
+                          <img src="ebook.jpg" alt="ebook ci">
+                          <h3 class="text-center mt-4">Hanya 45 ribu</h3>
+                          <h3 class="text-center mt-4">Hub 021-85765041</h3>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Jangan Tampilkan Lagi</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Ya Saya Mau</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      </section> <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 </body>
+<button class="btn btn-primary color m-3" data-toggle="modal" data-target="#exampleModal">
+  <img style="width: 50px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/bri.png' ?>" title="BANK BRI">
+</button>
+<button class="btn btn-primary color m-3" data-toggle="modal" data-target="#exampleModal">
+  <img style="width: 70px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/mandiri.png' ?>" title="BANK MANDIRI">
+</button>
+<button class="btn btn-primary color m-3" data-toggle="modal" data-target="#exampleModal">
+  <img style="width: 90px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/bca.png' ?>" title="BANK BCA">
+</button>
+<button class="btn btn-primary color m-3" data-toggle="modal" data-target="#exampleModal">
+  <img style="width: 70px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/bni.png' ?>" title="BANK BNI">
+</button>
+<button class="btn btn-primary color m-3" data-toggle="modal" data-target="#exampleModal">
+  <img style="width: 70px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/btpn.png' ?>" title="BANK BTPN">
+</button>

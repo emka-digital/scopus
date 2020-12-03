@@ -22,6 +22,27 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url() . 'theme/member/plugins/icheck-bootstrap/icheck-bootstrap.min.css' ?>">
+    <!-- pop up konfirmasi pesanan -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .color {
+            background-color: #fff;
+            margin-top: -20px;
+        }
+
+        .metode {
+
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h2 {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .btn {
+            border: 1px solid #fff;
+        }
+    </style>
 </head>
 
 
@@ -55,6 +76,8 @@
 <script src="<?php echo base_url() . 'theme/member/plugins/fullcalendar-bootstrap/main.min.js' ?>"></script>
 <!-- Summernote -->
 <script src="<?php echo base_url() . 'theme/member/plugins/summernote/summernote-bs4.min.js' ?>"></script>
+<!-- sweet alert -->
+<script src="<?php echo base_url() . 'assets/sweetalert/sweetalert2.all.min.js' ?>"></script>
 <!-- Page Script -->
 <script>
     $(function() {
@@ -232,34 +255,7 @@
         })
     })
 </script>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?= $title ?></title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap 4 -->
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?php echo base_url() . 'theme/member/plugins/fontawesome-free/css/all.min.css' ?>">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo base_url() . 'theme/member/dist/css/adminlte.min.css' ?>">
-
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
-
-<body>
-    <div class="wrapper">
-        <!-- Main content -->
-
-        <!-- /.content -->
-    </div>
-    <!-- ./wrapper -->
-
-    <!-- <script type="text/javascript"> -->
-    <!-- window.addEventListener("load", window.print()); -->
-    <!-- </script> -->
+<!-- pop up pembayaran -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

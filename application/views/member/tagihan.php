@@ -151,8 +151,8 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <h4>
-                                            <i class="fas fa-globe"></i> AdminLTE, Inc.
-                                            <small class="float-right">Date: 2/10/2014</small>
+                                            <img src="<?php echo base_url() . 'theme/images/logo/favicon-32x32.png' ?>"></i> Rumah Scopus
+                                            <small class="float-right">Date: <?= date('d F Y'); ?></small>
                                         </h4>
                                     </div>
                                     <!-- /.col -->
@@ -162,31 +162,33 @@
                                     <div class="col-sm-4 invoice-col">
                                         From
                                         <address>
-                                            <strong>Admin, Inc.</strong><br>
+                                            <strong>Rumah Scopus</strong><br>
                                             795 Folsom Ave, Suite 600<br>
                                             San Francisco, CA 94107<br>
-                                            Phone: (804) 123-5432<br>
-                                            Email: info@almasaeedstudio.com
+                                            Phone: 0812-2688-32808<br>
+                                            Email: rumahscopus@gmail.com
                                         </address>
                                     </div>
                                     <!-- /.col -->
                                     <div class="col-sm-4 invoice-col">
                                         To
                                         <address>
-                                            <strong>John Doe</strong><br>
-                                            795 Folsom Ave, Suite 600<br>
-                                            San Francisco, CA 94107<br>
-                                            Phone: (555) 539-1037<br>
-                                            Email: john.doe@example.com
+                                            <strong><?= $user['nama']; ?></strong><br>
+                                            <?= $user['alamat']; ?><br>
+                                            Phone: <?= $user['no_hp']; ?><br>
+                                            Email: <?= $user['email']; ?>
                                         </address>
                                     </div>
                                     <!-- /.col -->
+                                    <?php
+                                    $id_webinar = $this->uri->segment(4);
+                                    $webinar = $this->db->get_where('tbl_webinar', ['id' => $id_webinar])->row_array();
+                                    ?>
                                     <div class="col-sm-4 invoice-col">
                                         <b>Invoice #007612</b><br>
                                         <br>
                                         <b>Order ID:</b> 4F3S8J<br>
-                                        <b>Payment Due:</b> 2/22/2014<br>
-                                        <b>Account:</b> 968-34567
+                                        <b>Payment Due:</b> <?= date('d F Y'); ?><br>
                                     </div>
                                     <!-- /.col -->
                                 </div>
@@ -203,36 +205,21 @@
                                                     <th>Serial #</th>
                                                     <th>Description</th>
                                                     <th>Subtotal</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
+                                            <?php
+                                            $id_webinar = $this->uri->segment(4);
+                                            $webinar = $this->db->get_where('tbl_webinar', ['id' => $id_webinar])->row_array();
+                                            ?>
                                             <tbody>
                                                 <tr>
                                                     <td>1</td>
-                                                    <td>Call of Duty</td>
+                                                    <td><?= $webinar['nama_webinar'] ?></td>
                                                     <td>455-981-221</td>
-                                                    <td>El snort testosterone trophy driving gloves handsome</td>
+                                                    <td><?= $webinar['deskripsi'] ?></td>
                                                     <td>$64.50</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Need for Speed IV</td>
-                                                    <td>247-925-726</td>
-                                                    <td>Wes Anderson umami biodiesel</td>
-                                                    <td>$50.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Monsters DVD</td>
-                                                    <td>735-845-642</td>
-                                                    <td>Terry Richardson helvetica tousled street art master</td>
-                                                    <td>$10.70</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Grown Ups Blue Ray</td>
-                                                    <td>422-568-642</td>
-                                                    <td>Tousled lomo letterpress</td>
-                                                    <td>$25.99</td>
+                                                    <td><button type="button" class="btn btn-danger">Cancel</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -244,27 +231,23 @@
                                 <div class="row">
                                     <!-- accepted payments column -->
                                     <div class="col-6">
-                                        <p class="lead">Payment Methods:</p>
-                                        <img src="../../dist/img/credit/visa.png" alt="Visa">
-                                        <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-                                        <img src="../../dist/img/credit/american-express.png" alt="American Express">
-                                        <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
+                                        <p class="lead"><strong> Support Payment</strong></p>
+                                        <img style="width: 50px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/bri.png' ?>" title="BANK BRI">
+                                        <img style="width: 70px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/mandiri.png' ?>" title="BANK MANDIRI">
+                                        <img style="width: 90px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/bca.png' ?>" title="BANK BCA">
+                                        <img style="width: 70px; height:60px;" src="<?php echo base_url() . 'theme/images/logo/bni.png' ?>" title="BANK BNI">
+                                        <img style="width: 70px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/btpn.png' ?>" title="BANK BTPN">
 
-                                        <p style="margin-top: 10px; background-color:cornflowerblue; color:aliceblue;">
-                                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-                                            plugg
-                                            dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-                                        </p>
                                     </div>
                                     <!-- /.col -->
                                     <div class="col-6">
-                                        <p class="lead">Amount Due 2/22/2014</p>
+                                        <p class="lead">Amount Due <?= date('d F Y'); ?></p>
 
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <tr>
                                                     <th style="width:50%">Subtotal:</th>
-                                                    <td>$250.30</td>
+                                                    <td colspan="2">: Rp.<?= $webinar['harga'] ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Tax (9.3%)</th>
@@ -285,16 +268,54 @@
                                 </div>
                                 <!-- /.row -->
 
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">PAYMENT</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="col-md-12">
+                                                    <button class="btn btn-primary color m-3" data-toggle="modal" data-target="#exampleModal">
+                                                        <img style="width: 50px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/bri.png' ?>" title="BANK BRI">
+                                                    </button>
+                                                    <button class="btn btn-primary color m-3" data-toggle="modal" data-target="#exampleModal">
+                                                        <img style="width: 70px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/mandiri.png' ?>" title="BANK MANDIRI">
+                                                    </button>
+                                                    <button class="btn btn-primary color m-3" data-toggle="modal" data-target="#exampleModal">
+                                                        <img style="width: 90px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/bca.png' ?>" title="BANK BCA">
+                                                    </button>
+                                                    <button class="btn btn-primary color m-3" data-toggle="modal" data-target="#exampleModal">
+                                                        <img style="width: 70px; height:60px;" src="<?php echo base_url() . 'theme/images/logo/bni.png' ?>" title="BANK BNI">
+                                                    </button>
+                                                    <button class="btn btn-primary color m-3" data-toggle="modal" data-target="#exampleModal">
+                                                        <img style="width: 70px; height:50px;" src="<?php echo base_url() . 'theme/images/logo/btpn.png' ?>" title="BANK BTPN">
+                                                    </button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                    <!--<button type="button" class="btn btn-primary" data-dismiss="modal">Bayar!</button>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!-- this row will not appear when printing -->
                                 <div class="row no-print">
                                     <div class="col-12">
-                                        <a href="<?php echo base_url() . 'member/cetak' ?>" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
-                                        <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
+                                        <a href="<?php echo base_url() . 'member/cetak' ?>" type="button" target="_blank" class="btn btn-primary"><i class="fas fa-print"></i> Print</a>
+                                        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal">
+                                            <i class="far fa-credit-card"></i> Submit
                                             Payment
                                         </button>
-                                        <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+                                        <!--<button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
                                             <i class="fas fa-download"></i> Generate PDF
-                                        </button>
+                                        </button>-->
                                     </div>
                                 </div>
                             </div>

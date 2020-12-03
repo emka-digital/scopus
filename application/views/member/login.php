@@ -43,7 +43,7 @@
                             </div>
                         </form>
                         <div class="social-login">
-                            <span class="social-label">Or login with</span>
+                            <span class="social-label"></span>
                             <ul class="socials">
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
@@ -57,7 +57,7 @@
 
     </div>
 
-
     <script src="<?php echo base_url() . 'theme/member/vendor/jquery/jquery.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'js/main.js' ?>"></script>
+
 </body>
